@@ -1,33 +1,33 @@
 services:
   - name: inventory
-    apptrust_application: bookverse-inventory
+    apptrust_application: ${PROJECT_KEY:-bookverse}-inventory
     docker:
       registry: "${DOCKER_REGISTRY}"
-      repository: bookverse-inventory-internal-docker-release-local/inventory
+      repository: ${PROJECT_KEY:-bookverse}-inventory-internal-docker-release-local/inventory
     simulated_version: 1.8.3
     simulated_digest: sha256:abc123
 
   - name: recommendations
-    apptrust_application: bookverse-recommendations
+    apptrust_application: ${PROJECT_KEY:-bookverse}-recommendations
     docker:
       registry: "${DOCKER_REGISTRY}"
-      repository: bookverse-recommendations-internal-docker-release-local/recommendations-api
+      repository: ${PROJECT_KEY:-bookverse}-recommendations-internal-docker-release-local/recommendations-api
     simulated_version: 0.9.0
     simulated_digest: sha256:def456
 
   - name: checkout
-    apptrust_application: bookverse-checkout
+    apptrust_application: ${PROJECT_KEY:-bookverse}-checkout
     docker:
       registry: "${DOCKER_REGISTRY}"
-      repository: bookverse-checkout-internal-docker-release-local/checkout-api
+      repository: ${PROJECT_KEY:-bookverse}-checkout-internal-docker-release-local/checkout-api
     simulated_version: 0.7.2
     simulated_digest: sha256:ghi789
 
   - name: web
-    apptrust_application: bookverse-web
+    apptrust_application: ${PROJECT_KEY:-bookverse}-web
     docker:
       registry: "${DOCKER_REGISTRY}"
-      repository: bookverse-web-internal-docker-release-local/web
+      repository: ${PROJECT_KEY:-bookverse}-web-internal-docker-release-local/web
     simulated_version: 0.4.1
     simulated_digest: sha256:jkl012
 

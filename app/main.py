@@ -687,7 +687,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--platform-app",
-        default=os.environ.get("PLATFORM_APP_KEY", "bookverse-platform"),
+        default=os.environ.get("PLATFORM_APP_KEY", f"{os.environ.get('PROJECT_KEY', 'bookverse')}-platform"),
         help="Platform application key in AppTrust.",
     )
     parser.add_argument(

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: platform-service
-  namespace: bookverse-prod
+  namespace: ${PROJECT_KEY:-bookverse}-prod
   labels:
     app: platform-service
     component: platform
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: platform-aggregator
-        image: apptrustswampupc.jfrog.io/bookverse-platform-internal-docker-release-local/platform:latest
+        image: swampupsec.jfrog.io/${PROJECT_KEY:-bookverse}-platform-internal-docker-release-local/platform:latest
         imagePullPolicy: IfNotPresent
         command: ["./entrypoint.sh", "aggregator"]
         env:
@@ -34,9 +34,9 @@ spec:
         - name: DEVELOPMENT_MODE
           value: "false"
         - name: JFROG_URL
-          value: "https://apptrust.jfrog.io"
+          value: "https://swampupsec.jfrog.io"
         - name: PLATFORM_APP_KEY
-          value: "bookverse-platform"
+          value: "${PROJECT_KEY:-bookverse}-platform"
         resources:
           requests:
             memory: "256Mi"
