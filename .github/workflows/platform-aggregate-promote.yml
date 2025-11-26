@@ -1,5 +1,8 @@
 name: Platform Aggregate & Promote
 
+env:
+  PROJECT_KEY: ${{ vars.PROJECT_KEY }}
+  
 concurrency:
   group: platform-aggregate-promote
   cancel-in-progress: false
